@@ -24,9 +24,15 @@ spec:
     spec:
       serviceAccountName: klum
       containers:
-      - image: ibuildthecloud/klum:v0.1.0-amd64
+      - image: lalyos/klum:v0.1.1-amd64
         name: klum
-
+        env:
+        - name: DEFAULT_CLUSTER_ROLE
+          value: view
+        - name: NAMESPACE
+          value: workshop
+        - name: CONTEXT_NAME
+          value: workshop-{{.UserName}}
 ---
 
 apiVersion: v1
